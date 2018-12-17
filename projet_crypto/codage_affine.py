@@ -79,7 +79,7 @@ import random
 
 p=0
 while(p!=4) :
-    p=int(input("que voulez vous faire (1:cryptage, 2:décryptage,3:quitter le programme) : "))    
+    p=int(input("que voulez vous faire (1:cryptage, 2:décryptage,3:crypter Notre-Dame de Paris(clés aléatoires),4:quitter le programme) : "))    
     c=0
     if p==1 :   
         fichier1=open('texte_codé.txt','w')
@@ -93,10 +93,10 @@ while(p!=4) :
             b=int(input ('donner la clé b : '))
         texte=input('texte a coder : ')
         texte_code=''
-        for k in texte:     
+        for k in texte:                                 
             texte_code=texte_code+cryptage(k,a,b)
         print("le texte : \n",texte,"\n\ncodé avec le couple(%s,%d) donne \n\n:"%(a,b),texte_code)      
-        fichier1.write(texte_code)
+        fichier1.write(texte_code)                  #ecrit le texte codé dans un fichier texte
         fichier1.close()
     if p==2 :
         a=int(input("donnez la clé a utilisée : "))
@@ -111,19 +111,20 @@ while(p!=4) :
         else : 
             print("impossible a decrypter puisque a n'est pas premier avec 26")
     if p==3 :
-        fichier=open(r"C:\Users\titou\Documents\UCO\Info\complement_info\projet_crypto\Notre_Dame_de_Paris.txt","r")
+        fichier=open(r"C:\Users\titou\Documents\UCO\Info\complement_info\projet_crypto\Notre_Dame_de_Paris.txt",errors="ignore")
+        f=fichier.read()
         fichierP=open("Notre_Dame_de_Paris_Crypte.txt","w")
         a=random.randint(1,25)
         b=random.randint(0,25)
         code=''
-        for k in fichier :
+        for k in f :
             lettre=decryptage(k,a,b)
             code=code+lettre
         fichierP.write(code)
         fichierP.close()
         fichier.close()
         
-        
+
             
             
    
