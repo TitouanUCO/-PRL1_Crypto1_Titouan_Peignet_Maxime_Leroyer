@@ -118,7 +118,7 @@ while(p!=4) :
         b=random.randint(0,25)
         code=''
         for k in f :
-            lettre=decryptage(k,a,b)
+            lettre=cryptage(k,a,b)
             code=code+lettre
         fichierP.write(code)
         fichierP.close()
